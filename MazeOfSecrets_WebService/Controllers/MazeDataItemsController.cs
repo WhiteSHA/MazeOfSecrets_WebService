@@ -87,7 +87,7 @@ namespace MazeOfSecrets_WebService.Controllers
 
         // DELETE: api/MazeDataItems/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<MazeDataItem>> DeleteMazeDataItem(long id)
+        public async Task<ActionResult<MazeDataItem>> DeleteMazeDataItem(int id)
         {
             var mazeDataItem = await _context.MazeDataItems.FindAsync(id);
             if (mazeDataItem == null)

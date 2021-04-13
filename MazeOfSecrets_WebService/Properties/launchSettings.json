@@ -10,7 +10,7 @@
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
-      "launchUrl": "api/MazeDataItems",
+      //"launchUrl": "api/MazeDataItems",
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
@@ -18,7 +18,7 @@
     },
     "MazeOfSecrets_WebService": {
       "commandName": "Project",
-      "launchUrl": "api/MazeDataItems",
+      //"launchUrl": "api/MazeDataItems",
       "launchBrowser": true,
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
