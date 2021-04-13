@@ -29,7 +29,7 @@ namespace MazeOfSecrets_WebService.Controllers
 
         // GET: api/MazeDataItems/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<MazeDataItem>> GetMazeDataItem(long id)
+        public async Task<ActionResult<MazeDataItem>> GetMazeDataItem(int id)
         {
             var mazeDataItem = await _context.MazeDataItems.FindAsync(id);
 
@@ -45,7 +45,7 @@ namespace MazeOfSecrets_WebService.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutMazeDataItem(long id, MazeDataItem mazeDataItem)
+        public async Task<IActionResult> PutMazeDataItem(int id, MazeDataItem mazeDataItem)
         {
             if (id != mazeDataItem.Id)
             {
@@ -101,7 +101,7 @@ namespace MazeOfSecrets_WebService.Controllers
             return mazeDataItem;
         }
 
-        private bool MazeDataItemExists(long id)
+        private bool MazeDataItemExists(int id)
         {
             return _context.MazeDataItems.Any(e => e.Id == id);
         }
