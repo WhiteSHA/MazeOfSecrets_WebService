@@ -79,6 +79,8 @@ namespace MazeOfSecrets_WebService.Controllers
         [HttpPost]
         public async Task<ActionResult<MazeDataItem>> PostMazeDataItem(MazeDataItem mazeDataItem)
         {
+            Console.WriteLine(mazeDataItem.Id);
+
             _context.MazeDataItems.Add(mazeDataItem);
             await _context.SaveChangesAsync();
 
