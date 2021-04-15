@@ -23,7 +23,7 @@ namespace MazeOfSecrets_WebService.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult ControlPanel()
         {
             return View();
         }

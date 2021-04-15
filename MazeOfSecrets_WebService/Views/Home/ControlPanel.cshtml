@@ -1,0 +1,123 @@
+﻿@{
+    ViewData["Title"] = "Control panel";
+}
+<div class="text-center">
+    <h1 class="display-4">@ViewData["Title"]</h1>
+
+    <br />
+
+    <h4>
+        The data that you entered is displayed here.<br /> This data will be received by the player when he starts the game.
+    </h4>
+
+    <br />
+
+    <label id="warningLabel" style="color:red; font-size: 16px;"></label>
+
+    <br />
+
+    <script>
+        var requestOptions = {
+            method: 'GET',
+            redirect: 'follow'
+        };
+
+        fetch("http://localhost:63489/api/MazeDataItems/GetCount", requestOptions)
+            .then(response => response.text())
+            .then(result => doWork(result))
+            .catch(error => console.log('error', error));
+
+        function doWork(res) {
+            var jsonData = JSON.parse(res);
+
+            console.log(jsonData);
+
+            var select = document.getElementById("id");
+            for (var i = jsonData + 10; i > jsonData; --i) {
+                var option = document.createElement('option');
+                option.text = option.value = i;
+
+                if (i == jsonData + 1)
+                    option.selected = true;
+
+                select.add(option, 0);
+            }
+        }
+
+        window.onload = function () {
+
+        };
+
+        function PostNewQuiz()
+        {
+            var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json");
+
+            var quizId = +document.getElementById("id").value;
+            var userId = +document.getElementById("userId").value;
+            var question = document.getElementById("question").value;
+            var correctAnswer = document.getElementById("corrAnswer").value;
+            var wrongAnswer1 = document.getElementById("wrongAns1").value;
+            var wrongAnswer2 = document.getElementById("wrongAns2").value;
+
+            if (document.getElementById("userId").value.toString().length < 1 || question.toString().length < 1 || correctAnswer.toString().length < 1 ||
+                wrongAnswer1.toString().length < 1 || wrongAnswer2.toString().length < 1)
+            {
+                document.getElementById("warningLabel").innerHTML = "Please fill all inputs";
+                return;
+            }
+
+            var raw = JSON.stringify({
+                "id": quizId,
+                "userId": userId,
+                "question": question,
+                "correctAnswer": correctAnswer,
+                "wrongAnswer1": wrongAnswer1,
+                "wrongAnswer2": wrongAnswer2
+            });
+
+            var requestOptions =
+            {
+                method: 'POST',
+                headers: myHeaders,
+                body: raw,
+                redirect: 'follow'
+            };
+
+            console.log(raw);
+
+            fetch("http://localhost:63489/api/MazeDataItems", requestOptions)
+                .then(response => response.text())
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+
+            location.reload();
+        }
+    </script>
+    
+    <label for="id" style="width:100px; height:30px; text-align: center;">Question id : </label>
+    <select id="id" name="id" style="width:200px; height:30px; text-align-last:center;"></select>
+
+    <label for="userId" style="width:100px; height:30px" ; text-align: center;>User id : </label>
+    <input type="number" name="userId" id="userId" min="1" max="500" style="width:200px; height:30px; text-align: center;">
+
+    <br />
+
+    <label for="question" style="width:100px; height:50px; padding-bottom:20px;">Question : </label>
+    <textarea id="question" name="question" rows="4" cols="50" style="width:200px; height:70px" ;></textarea>
+
+    <label for="corrAnswer" style="width:100px; height:50px;">Correct Answer : </label>
+    <textarea id="corrAnswer" name="corrAnswer" rows="4" cols="50" style="width:200px; height:70px" ;></textarea>
+
+    <br />
+
+    <label for="wrongAns1" style="width:100px; height:50px; padding-bottom:20px;">Wrong Answer 1 : </label>
+    <textarea id="wrongAns1" name="wrongAns1" rows="4" cols="50" style="width:200px; height:70px" ;></textarea>
+
+    <label for="wrongAns2" style="width:100px; height:50px;">Wrong Answer 2 : </label>
+    <textarea id="wrongAns2" name="wrongAns2" rows="4" cols="50" style="width:200px; height:70px" ;></textarea>
+
+    <br />
+
+    <button id="submitBtn" onclick="PostNewQuiz()">Submit</button>
+</div>

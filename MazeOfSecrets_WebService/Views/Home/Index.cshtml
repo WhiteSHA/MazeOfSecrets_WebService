@@ -1,13 +1,16 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Main Page";
 }
 
 <div class="text-center">
     <h1 class="display-4">Welcome to Maze of Secrets control panel</h1>
     <h4>
-        To add data, enter them in the fields and click save. <br />
-        You must enter data in all fields.
+        The data that you entered is displayed here.<br /> This data will be received by the player when he starts the game.
     </h4>
+
+    <br />
+    <br />
+
     <script>
 
         var requestOptions = {
@@ -26,8 +29,6 @@
 
             console.log(jsonData);
             console.log(jsonData.length);
-
-            console.log(jsonData[1].question);   
 
             CreateTable(jsonData);
         } 

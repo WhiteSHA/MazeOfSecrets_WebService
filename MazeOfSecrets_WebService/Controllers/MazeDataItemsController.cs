@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MazeApi.Models;
@@ -25,6 +24,13 @@ namespace MazeOfSecrets_WebService.Controllers
         public async Task<ActionResult<IEnumerable<MazeDataItem>>> GetMazeDatas()
         {
             return await _context.MazeDataItems.ToListAsync();
+        }
+
+        // GET: api/MazeDataItems/GetCount
+        [HttpGet("GetCount")]
+        public int GetCount()
+        {
+            return _context.MazeDataItems.ToList().Count;
         }
 
         // GET: api/MazeDataItems/5
