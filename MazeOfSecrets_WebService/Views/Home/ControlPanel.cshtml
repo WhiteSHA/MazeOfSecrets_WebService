@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Control panel";
+    ViewData["Title"] = "Insert Table";
 }
 <div class="text-center">
     <h1 class="display-4">@ViewData["Title"]</h1>
@@ -32,16 +32,9 @@
 
             console.log(jsonData);
 
-            var select = document.getElementById("id");
-            for (var i = jsonData + 10; i > jsonData; --i) {
-                var option = document.createElement('option');
-                option.text = option.value = i;
+            var idEdit = document.getElementById("id");
 
-                if (i == jsonData + 1)
-                    option.selected = true;
-
-                select.add(option, 0);
-            }
+            idEdit.value = jsonData + 1;
         }
 
         window.onload = function () {
@@ -96,7 +89,7 @@
     </script>
     
     <label for="id" style="width:100px; height:30px; text-align: center;">Question id : </label>
-    <select id="id" name="id" style="width:200px; height:30px; text-align-last:center;"></select>
+    <input type="number" name="id" id="id" min="1" max="500" style="width:200px; height:30px; text-align: center;" readonly="readonly">
 
     <label for="userId" style="width:100px; height:30px" ; text-align: center;>User id : </label>
     <input type="number" name="userId" id="userId" min="1" max="500" style="width:200px; height:30px; text-align: center;">

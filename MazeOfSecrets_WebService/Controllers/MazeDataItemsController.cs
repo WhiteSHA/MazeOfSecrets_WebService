@@ -109,6 +109,17 @@ namespace MazeOfSecrets_WebService.Controllers
             return mazeDataItem;
         }
 
+        // DELETE: api/MazeDataItems/DeleteAllItems
+        [HttpDelete("DeleteAllItems")]
+        public int DeleteMazeDataItems() // not workings
+        {
+            foreach(var entity in _context.MazeDataItems)
+                _context.MazeDataItems.Remove(entity);
+            _context.SaveChanges();
+
+            return _context.MazeDataItems.ToList().Count();
+        }
+
         private bool MazeDataItemExists(int id)
         {
             return _context.MazeDataItems.Any(e => e.Id == id);

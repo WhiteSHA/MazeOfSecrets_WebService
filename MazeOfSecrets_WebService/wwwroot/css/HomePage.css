@@ -1,0 +1,29 @@
+﻿
+.text-center {
+    position: relative;
+    height: auto;
+    width: auto;
+}
+
+    .text-center::after {
+        content: "";
+        background: url('../images/splash.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100%;
+        filter: blur(4px);
+        -webkit-filter: blur(4px);
+        opacity: 0.5;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        z-index: -1;
+    }
+
+p {
+    font-size: 20px;
+    color: black;
+}
+

@@ -51,7 +51,7 @@ namespace MazeApi
                 //endpoints.MapControllers();
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}"); // for main page
+                    pattern: "{controller=Home}/{action=Home}/{id?}"); // for main page
             });
         }
     }

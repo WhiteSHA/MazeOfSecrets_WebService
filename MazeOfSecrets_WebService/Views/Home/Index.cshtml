@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Main Page";
+    ViewData["Title"] = "Quest Table";
 }
 
 <div class="text-center">
@@ -7,6 +7,10 @@
     <h4>
         The data that you entered is displayed here.<br /> This data will be received by the player when he starts the game.
     </h4>
+
+    <br />
+
+    <h6 id="waitingLabel">Wait for data load!!!</h6>
 
     <br />
     <br />
@@ -118,6 +122,8 @@
             body.appendChild(tbl);
 
             SetTableStyles();
+
+            document.getElementById("waitingLabel").innerHTML = "";
         }
 
         function SetTableStyles()
