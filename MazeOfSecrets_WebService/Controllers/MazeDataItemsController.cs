@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -85,8 +84,6 @@ namespace MazeOfSecrets_WebService.Controllers
         [HttpPost]
         public async Task<ActionResult<MazeDataItem>> PostMazeDataItem(MazeDataItem mazeDataItem)
         {
-            Console.WriteLine(mazeDataItem.Id);
-
             _context.MazeDataItems.Add(mazeDataItem);
             await _context.SaveChangesAsync();
 

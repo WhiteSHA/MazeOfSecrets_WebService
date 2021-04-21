@@ -28,6 +28,11 @@ namespace MazeOfSecrets_WebService.Controllers
             return View();
         }
 
+        public IActionResult EditOrDelete()
+        {
+            return View();
+        }
+
         public IActionResult Home()
         {
             return View();

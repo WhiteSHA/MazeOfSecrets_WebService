@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Insert Table";
+    ViewData["Title"] = "Edit panel";
 }
 <div class="text-center">
     <h1 class="display-4">@ViewData["Title"]</h1>
@@ -17,7 +17,7 @@
     <br />
 
     <label for="id" style="width:100px; height:30px; text-align: center;">Question id : </label>
-    <input type="number" name="id" id="id" min="1" max="500" style="width:200px; height:30px; text-align: center;" readonly="readonly">
+    <select id="id" name="id" style="width:200px; height:30px; text-align-last:center;" onchange="getval(this);"></select>
 
     <label for="userId" style="width:100px; height:30px" ; text-align: center;>User id : </label>
     <input type="number" name="userId" id="userId" min="1" max="500" style="width:200px; height:30px; text-align: center;">
@@ -43,7 +43,18 @@
     <br />
     <br />
 
-    <button id="submitBtn" onclick="PostNewQuiz()">Submit</button>
+    <button id="submitBtn" onclick="EditQuiz()">Save</button>
 
-    <script src="~/js/AddQuiz.js"></script>
+    <hr style="height:1px; border:none; background-color:#333;" />
+    <hr style="height:1px; border:none; background-color:#333;" />
+
+    <h4>Delete panel</h4>
+
+    <br />
+    <br />
+
+    <button id="submitBtn" onclick="DeleteLast()">Delete Last</button>
+    <button id="submitBtn" onclick="DeleteAll()" style="margin-left: 10%;">Delete All</button>
+
+    <script src="~/js/EditOrDelete.js"></script>
 </div>
