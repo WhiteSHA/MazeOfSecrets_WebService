@@ -11,6 +11,7 @@ fetch("http://localhost:63489/api/MazeDataItems/GetCount", requestOptions)
     .then(result => processResult(result))
     .catch(error => console.log('error', error));
 
+
 function processResult(res) {
     var jsonData = JSON.parse(res);
 

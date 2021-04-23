@@ -46,6 +46,28 @@ namespace MazeOfSecrets_WebService.Controllers
             return mazeDataItem;
         }
 
+        // GET: api/MazeDataItems/GetByUser/
+        [HttpGet("GetByUser/{userId}")]
+        public List<MazeDataItem> GetMazeDataItemsByUserAsync(int userId)
+        {
+            List<MazeDataItem> items = _context.MazeDataItems.ToList();
+
+            if (items == null)
+            {
+                return null;
+            }
+
+            for (int i = 0; i < items.Count; ++i)
+            {
+                if (items[i].UserId != userId)
+                {
+                    items.RemoveAt(i);
+                }
+            }
+
+            return items;
+        }
+
         // PUT: api/MazeDataItems/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
