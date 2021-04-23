@@ -2,6 +2,9 @@
     ViewData["Title"] = "Edit panel";
 }
 <div class="text-center">
+
+    <link rel="stylesheet" href="~/css/EditOrDeletePage.css" />
+
     <h1 class="display-4">@ViewData["Title"]</h1>
 
     <br />
@@ -45,16 +48,25 @@
 
     <button id="submitBtn" onclick="EditQuiz()">Save</button>
 
+    <br />
+    <br />
+
     <hr style="height:1px; border:none; background-color:#333;" />
     <hr style="height:1px; border:none; background-color:#333;" />
+
+    <br />
+    <br />
 
     <h4>Delete panel</h4>
 
     <br />
     <br />
 
-    <button id="submitBtn" onclick="DeleteLast()">Delete Last</button>
-    <button id="submitBtn" onclick="DeleteAll()" style="margin-left: 10%;">Delete All</button>
+    <button id="deleteBtn" onclick="DeleteLast()">Delete Last</button>
+    <button id="deleteBtn" onclick="DeleteAll()" style="margin-left: 10%;">Delete All</button>
+
+    <br />
+    <br />
 
     <script src="~/js/EditOrDelete.js"></script>
 </div>
