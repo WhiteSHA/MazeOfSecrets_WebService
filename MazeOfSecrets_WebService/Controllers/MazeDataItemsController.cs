@@ -50,22 +50,21 @@ namespace MazeOfSecrets_WebService.Controllers
         [HttpGet("GetByUser/{userId}")]
         public List<MazeDataItem> GetMazeDataItemsByUserAsync(int userId)
         {
-            List<MazeDataItem> items = _context.MazeDataItems.ToList();
+            List<MazeDataItem> items = _context.MazeDataItems.ToList();            
 
             if (items == null)
             {
                 return null;
             }
 
+            List<MazeDataItem> itemsToSend = new List<MazeDataItem>();
             for (int i = 0; i < items.Count; ++i)
             {
-                if (items[i].UserId != userId)
-                {
-                    items.RemoveAt(i);
-                }
+                if (items[i].UserId == userId)
+                    itemsToSend.Add(items[i]);
             }
 
-            return items;
+            return itemsToSend;
         }
 
         // PUT: api/MazeDataItems/5
