@@ -41,3 +41,12 @@ p {
         background-color: RoyalBlue;
     }
 
+.details {
+    text-align: left;
+    display: flex;
+    justify-content: center;
+}
+    .details ul {
+        font-size: 20px;
+        color: black;
+    }
