@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Edit panel";
+    ViewData["Title"] = "Խմբագրել";
 }
 <div class="text-center">
 
@@ -10,7 +10,7 @@
     <br />
 
     <h4>
-        The data that you entered is displayed here.<br /> This data will be received by the player when he starts the game.
+        Խմբագրեք հարցը<br />Խմբագրված հարցը պահպանելու համար անհրաժեշտ է լրացնել բոլոր դաշտերը
     </h4>
 
     <br />
@@ -19,34 +19,34 @@
 
     <br />
 
-    <label for="id" style="width:100px; height:30px; text-align: center;">Question id : </label>
+    <label for="id" style="width:125px; height:30px; text-align: center;">Հարցի id : </label>
     <select id="id" name="id" style="width:200px; height:30px; text-align-last:center;" onchange="getval(this);"></select>
 
-    <label for="userId" style="width:100px; height:30px" ; text-align: center;>User id : </label>
+    <label for="userId" style="width:125px; height:30px" ; text-align: center;>Խաղացողի id : </label>
     <input type="number" name="userId" id="userId" min="1" max="500" style="width:200px; height:30px; text-align: center;">
 
     <br />
     <br />
 
-    <label for="question" style="width:100px; height:70px; vertical-align: top;">Question : </label>
+    <label for="question" style="width:125px; height:70px; vertical-align: top;">Հարց : </label>
     <textarea id="question" name="question" rows="4" cols="50" style="width:200px; height:70px" ;></textarea>
 
-    <label for="corrAnswer" style="width:100px; height:70px; vertical-align: top;">Correct Answer : </label>
+    <label for="corrAnswer" style="width:125px; height:70px; vertical-align: top;">Ճիշտ պատասխան : </label>
     <textarea id="corrAnswer" name="corrAnswer" rows="4" cols="50" style="width:200px; height:70px" ;></textarea>
 
     <br />
     <br />
 
-    <label for="wrongAns1" style="width:100px; height:70px; vertical-align: top;">Wrong Answer 1 : </label>
+    <label for="wrongAns1" style="width:125px; height:70px; vertical-align: top;">Սխալ պատասխան 1 : </label>
     <textarea id="wrongAns1" name="wrongAns1" rows="4" cols="50" style="width:200px; height:70px" ;></textarea>
 
-    <label for="wrongAns2" style="width:100px; height:70px; vertical-align: top;">Wrong Answer 2 : </label>
+    <label for="wrongAns2" style="width:125px; height:70px; vertical-align: top;">Սխալ պատասխան 2 : </label>
     <textarea id="wrongAns2" name="wrongAns2" rows="4" cols="50" style="width:200px; height:70px" ;></textarea>
 
     <br />
     <br />
 
-    <button id="submitBtn" onclick="EditQuiz()">Save</button>
+    <button id="submitBtn" onclick="EditQuiz()">Խմբագրել</button>
 
     <br />
     <br />
@@ -57,13 +57,13 @@
     <br />
     <br />
 
-    <h4>Delete panel</h4>
+    <h4>Ջնջել</h4>
 
     <br />
     <br />
 
-    <button id="deleteBtn" onclick="DeleteLast()">Delete Last</button>
-    <button id="deleteBtn" onclick="DeleteAll()" style="margin-left: 10%;">Delete All</button>
+    <button id="deleteBtn" onclick="DeleteLast()">Ջնջել վերջինը</button>
+    <button id="deleteBtn" onclick="DeleteAll()" style="margin-left: 10%;">Ջնջել բոլորը</button>
 
     <br />
     <br />
