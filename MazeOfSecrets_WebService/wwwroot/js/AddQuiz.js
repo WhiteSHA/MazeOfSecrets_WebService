@@ -36,22 +36,24 @@ var requestOptions = {
 
         if (document.getElementById("userId").value.toString().length < 1 || question.toString().length < 1 || correctAnswer.toString().length < 1 ||
             wrongAnswer1.toString().length < 1 || wrongAnswer2.toString().length < 1) {
-    document.getElementById("warningLabel").innerHTML = "Please fill all inputs";
+            document.getElementById("warningLabel").innerHTML = "Please fill all inputs";
             return;
         }
 
         var raw = JSON.stringify({
-    "id": quizId,
-            "userId": userId,
+            "id": +quizId,
+            "userId": +userId,
             "question": question,
             "correctAnswer": correctAnswer,
             "wrongAnswer1": wrongAnswer1,
             "wrongAnswer2": wrongAnswer2
         });
 
+        console.log("id: " + +quizId);
+
         var requestOptions =
         {
-    method: 'POST',
+            method: 'POST',
             headers: myHeaders,
             body: raw,
             redirect: 'follow'
@@ -59,7 +61,7 @@ var requestOptions = {
 
         console.log(raw);
 
-        fetch("http://localhost:63489/api/MazeDataItems", requestOptions)
+        fetch("http://localhost:63489/api/MazeDataItems/addItem", requestOptions)
             .then(response => response.text())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));

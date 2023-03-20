@@ -102,8 +102,8 @@ namespace MazeOfSecrets_WebService.Controllers
         // POST: api/MazeDataItems
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPost]
-        public async Task<ActionResult<MazeDataItem>> PostMazeDataItem(MazeDataItem mazeDataItem)
+        [HttpPost("addItem")]
+        public async Task<ActionResult<MazeDataItem>> PostMazeDataItem([FromBody] MazeDataItem mazeDataItem)
         {
             _context.MazeDataItems.Add(mazeDataItem);
             await _context.SaveChangesAsync();
